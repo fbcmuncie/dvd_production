@@ -10,7 +10,7 @@ directory='/home/fbcmuncie/Desktop'/${date}'_early'
 mkdir ${directory} &&
 
 # copy the files from the SD Card to the Directory
-gcp /media/fbcmuncie/CANON/PRIVATE/AVCHD/BDMV/STREAM/*.MTS ${directory}/ &&
+gcp /media/wadeallen/8765-4321/DCIM/100_MEVO/*.MP4 ${directory}/ &&
 
 # move into the working directory
 cd ${directory} &&
@@ -18,7 +18,7 @@ cd ${directory} &&
 # for every MTS file, convert to MPG file to burn to DVD
 for f in *.MTS
       do 
-      ffmpeg -i "$f" -target ntsc-dvd "${f%.MTS}.mpg"
+      ffmpeg -i "$f" -target ntsc-dvd "${f%.MP4}.mpg"
 done &&
 
 # remove the MTS files from directory

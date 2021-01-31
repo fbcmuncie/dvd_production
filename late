@@ -4,4 +4,4 @@ date=`date +"%Y-%m-%d"`
 directory='/home/fbcmuncie/Desktop'/${date}'_late' 
 
 mkdir ${directory} 
-gcp /media/fbcmuncie/CANON/PRIVATE/AVCHD/BDMV/STREAM/*.MTS ${directory}/
+gcp /media/wadeallen/8765-4321/DCIM/100_MEVO ${directory}/
