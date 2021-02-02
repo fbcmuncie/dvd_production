@@ -2,27 +2,35 @@
 
 # get the current date
 
-date=`date +"%Y-%m-%d"`
-directory='/home/fbcmuncie/Desktop'/${date}'_early' 
+# if not Sunday, then use the last Sunday
+if [[ $(date +%u) -gt 6 ]];
+then
+	date=$(date +%Y-%m-%d)
+else
+	date=$(date -dlast-sunday +%Y-%m-%d)
+fi
 
+directory='/home/wadeallen/Desktop'/${date}'_early'
+
+echo 
 # make a directory with the current date on the Desktop
 
 mkdir ${directory} &&
 
 # copy the files from the SD Card to the Directory
-gcp /media/wadeallen/8765-4321/DCIM/100_MEVO/*.MP4 ${directory}/ &&
+gcp /media/wadeallen/*/DCIM/100_MEVO/*.MP4 ${directory}/ &&
 
 # move into the working directory
 cd ${directory} &&
 
 # for every MTS file, convert to MPG file to burn to DVD
-for f in *.MTS
+for f in *.MP4
       do 
       ffmpeg -i "$f" -target ntsc-dvd "${f%.MP4}.mpg"
 done &&
 
 # remove the MTS files from directory
-rm *.MTS &&
+rm *.MP4 &&
 
 #Build xml file with the contents of folder. This is used in dvdauthor to build the DVD
 echo -e "<dvdauthor>\n<vmgm>\n</vmgm>\n<titleset>\n<titles>\n<pgc>" > ${date}.xml &&
