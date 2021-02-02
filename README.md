@@ -2,9 +2,9 @@
 
 The scripts are setup on the DVD burning laptop. 
 
-1. Insert the SD card into the card reader. You should see the card show up on the desktop. It should read `CANON`.
+1. Insert the SD card into the card reader. You should see the card show up on the desktop. It will have the SD Card icon. This means the card is mounted. You need to make sure the card is mounted before moving to step 2.
 
-2. Once the SD card is in, open the Terminal application and type `early`.
+2. Once the SD card is in, open the Terminal application and type `copy`.
 
 You should see the files copying over and then the DVD creation process begin. This will take 30-40 minutes to complete. Once the process has completed, you will see a command prompt with a blinking cursor.
 
